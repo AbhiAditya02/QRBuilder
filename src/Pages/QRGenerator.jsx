@@ -1,9 +1,10 @@
-import React, { useState } from 'react'
+import React, { useContext, useState } from 'react'
 import QRCode from 'react-qr-code'
+import QrContext from '../context/QRcontext'
 
 const QRGenerator = () => {
   const [Text, setText] = useState("")
-  const [Qr, setQr] = useState("")
+  const { qrValue, setQrValue } = useContext(QrContext)
 
   const generateQR = () => {
     if (!Text.trim()) {
@@ -11,7 +12,7 @@ const QRGenerator = () => {
       return;
     }
 
-    setQr(Text);
+    setQrValue(Text);
   };
 
   const handleDownload = () => {
@@ -45,7 +46,7 @@ const QRGenerator = () => {
   }
 
   return (
-    <>
+    <div className='min-h-screen'>
       <div className='flex justify-center items-center py-4'>
         <p className='text-2xl font-bold tracking-wide sm:text-4xl'>QR Code Generator</p>
       </div>
@@ -55,22 +56,28 @@ const QRGenerator = () => {
             className="border-2 rounded-lg pr-5 p-2 w-full bg-gray-300 border-none text-[20px] font-medium text-gray-950 "
             value={Text} onChange={(e) => { setText(e.target.value) }} />
 
-          <button className='bg-black p-2 px-4 text-white rounded-lg font-bold' onClick={generateQR}>Genrate QR</button>
+          <button className='bg-black p-2 px-4 text-white rounded-lg font-bold cursor-pointer' onClick={generateQR}>Genrate QR</button>
 
-          {Qr ? (
+          {qrValue ? (
             <div className='flex justify-center items-center bg-white border-none rounded-[10px] w-40 h-40 p-4 sm:w-52 sm:h-52 lg:w-60 lg:h-60' >
-              <QRCode id='qrCode' value={Qr} size={1024} bgColor="white" fgColor="black" />
+              <QRCode id='qrCode' value={qrValue} size={128}
+                level="H"
+                style={{ 
+                  height: "auto", 
+                  maxWidth: "100%", 
+                  width: "100%" 
+                }} bgColor="white" fgColor="black" />
             </div>
           ) : (
             <p className="text-gray-950 text-center">Type something to generate QR</p>
           )}
 
-          {Qr && (
+          {qrValue && (
             <button className='bg-green-400 p-2 text-gray-500 hover:text-white border-green-400 rounded-lg font-bold' onClick={handleDownload}>Download</button>
           )}
         </div>
       </div>
-    </>
+    </div>
   )
 }
 
