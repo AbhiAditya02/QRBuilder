@@ -1,7 +1,7 @@
 import { useContext } from 'react'
 import logo from '../assets/LOGO.png'
 import { Link } from 'react-router-dom'
-import QrContext from '../context/QRcontext'
+import QrContext from '../context/QrContext'
 
 const Navbar = () => {
   const { qrValue } = useContext(QrContext)

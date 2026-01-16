@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import QrContext from './QRcontext'
+import QrContext from './QrContext'
 
 const QrStates = (props) => {
   const [qrValue, setQrValue] = useState("")

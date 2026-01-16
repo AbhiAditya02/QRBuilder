@@ -1,5 +1,5 @@
 import { useContext, useRef, useState, useEffect } from "react"
-import QrContext from "../context/QRcontext"
+import QrContext from "../context/QrContext"
 import { QRCodeSVG } from "qrcode.react";
 
 

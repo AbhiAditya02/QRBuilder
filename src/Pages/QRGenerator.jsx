@@ -1,6 +1,6 @@
 import React, { useContext, useState } from 'react'
 import QRCode from 'react-qr-code'
-import QrContext from '../context/QRcontext'
+import QrContext from '../context/QrContext'
 
 const QRGenerator = () => {
   const [Text, setText] = useState("")

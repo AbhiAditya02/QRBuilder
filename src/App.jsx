@@ -3,7 +3,7 @@ import QRGenerator from './Pages/QRGenerator'
 import Navbar from './component/Navbar'
 import { Route, Routes, Navigate } from 'react-router-dom'
 import Design_QR from './Pages/Design_QR'
-import QrContext from './context/QRcontext'
+import QrContext from './context/QrContext'
 
 
 const App = () => {
