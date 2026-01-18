@@ -4,6 +4,8 @@
 
 A beautiful, feature-rich QR code generator built with React. Create stunning, customizable QR codes with logos, and various styling options, all in your browser!
 
+🏆 This repository is part of **Open Source 101**, organised by **ISTE HIT SC**.
+
 ## ✨ Features
 
 - 🎨 **Custom Colors** - Choose any foreground and background colors
